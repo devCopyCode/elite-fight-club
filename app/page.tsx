@@ -10,6 +10,8 @@ import Modalidades from "./components/Modalidades";
 import Instrutores from "./components/Instrutores";
 import Horarios from "./components/Horarios";
 import Planos from "./components/Planos";
+import Contato from "./components/Contato";
+import Footer from "./components/Footer";
 import LangToggle from "./components/LangToggle";
 
 type Lang = "pt" | "en";
@@ -28,7 +30,9 @@ export default function Home() {
         <Instrutores lang={lang} />
         <Horarios lang={lang} />
         <Planos lang={lang} />
+        <Contato lang={lang} />
       </main>
+      <Footer lang={lang} />
       <LangToggle lang={lang} onToggle={() => setLang(l => l === "pt" ? "en" : "pt")} />
     </>
   );
