@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import MarqueeBanner from "./components/MarqueeBanner";
 import Sobre from "./components/Sobre";
 import Modalidades from "./components/Modalidades";
+import Instrutores from "./components/Instrutores";
 import LangToggle from "./components/LangToggle";
 
 type Lang = "pt" | "en";
@@ -22,6 +23,7 @@ export default function Home() {
         <MarqueeBanner />
         <Sobre lang={lang} />
         <Modalidades lang={lang} />
+        <Instrutores lang={lang} />
       </main>
       <LangToggle lang={lang} onToggle={() => setLang(l => l === "pt" ? "en" : "pt")} />
     </>
