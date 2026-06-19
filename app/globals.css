@@ -1,26 +1,106 @@
+/* app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-black: #0A0A0A;
+  --color-red: #CC0000;
+  --color-white: #F5F5F5;
+  --color-gray: #1A1A1A;
+  --color-gray-mid: #555555;
+  --font-display: var(--font-bebas);
+  --font-accent: var(--font-barlow);
+  --font-body: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A0A0A;
+    color: #F5F5F5;
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-display {
+    font-family: var(--font-bebas), sans-serif;
+  }
+
+  .font-accent {
+    font-family: var(--font-barlow), sans-serif;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .btn-red {
+    background-color: #CC0000;
+    color: #F5F5F5;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+    transition: background-color 0.2s ease;
+    display: inline-block;
+  }
+
+  .btn-red:hover {
+    background-color: #aa0000;
+  }
+
+  .btn-outline {
+    border: 1px solid #333;
+    color: #888;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: #CC0000;
+    color: #F5F5F5;
+  }
+
+  .section-label {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #CC0000;
+  }
+
+  .section-title {
+    font-family: var(--font-bebas), sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: #F5F5F5;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
