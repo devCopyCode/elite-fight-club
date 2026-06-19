@@ -4,6 +4,8 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import MarqueeBanner from "./components/MarqueeBanner";
+import Sobre from "./components/Sobre";
 import LangToggle from "./components/LangToggle";
 
 type Lang = "pt" | "en";
@@ -16,6 +18,8 @@ export default function Home() {
       <Navbar lang={lang} />
       <main style={{ backgroundColor: "#0A0A0A" }}>
         <Hero lang={lang} />
+        <MarqueeBanner />
+        <Sobre lang={lang} />
       </main>
       <LangToggle lang={lang} onToggle={() => setLang(l => l === "pt" ? "en" : "pt")} />
     </>
