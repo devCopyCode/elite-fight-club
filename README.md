@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Elite Fight Club
 
-## Getting Started
+Premium Muay Thai & Boxe gym website built with **Next.js 16**, **TypeScript**, **GSAP**, and **Framer Motion**.
 
-First, run the development server:
+## 🎯 Design System
+
+- **Typography:** Bebas Neue (display) + Space Grotesk (body) + Rajdhani (labels)
+- **Colors:** Dark luxury palette (#080808 black, #C8102E red, #F0F0F0 white)
+- **Animation:** GSAP scroll hijack, clip-path reveals, framer-motion springs
+- **Performance:** Sub-2s load, WCAG AA contrast, optimized images
+
+## 📋 Features
+
+✅ **Hero Section** — 160px title reveal, gym interior background, scroll expansion  
+✅ **Responsive Design** — Mobile-first, breathing hierarchy  
+✅ **Smooth Animations** — Underline nav, button hover glow, marquee loop  
+✅ **Image Gallery** — 6-photo carousel with infinite loop and vignette  
+✅ **Pricing Plans** — Toggle between adult/child, Muay Thai/Boxe  
+✅ **Team Showcase** — Grayscale hover reveal, parallax  
+✅ **Testimonials** — Drag scroll marquee with color accent  
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Install
+
+```bash
+cd elite-fight-club
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3002](http://localhost:3002)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📦 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git remote add origin https://github.com/YOUR_USER/elite-fight-club.git
+git branch -M main
+git push -u origin main
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Netlify
 
-## Deploy on Vercel
+1. Go to [app.netlify.com](https://app.netlify.com)
+2. Click **Add new site** → **Import an existing project**
+3. Select **GitHub** → choose `elite-fight-club`
+4. Build settings auto-detect from `netlify.toml`:
+   - **Build command:** `npm run build`
+   - **Publish directory:** `.next`
+5. Click **Deploy site**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📐 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+elite-fight-club/
+├── app/
+│   ├── components/          # React components
+│   │   ├── Nav.tsx         # Fixed navbar
+│   │   ├── Sobre.tsx       # About section
+│   │   ├── Programas.tsx   # Programs
+│   │   ├── Galeria.tsx     # Photo gallery
+│   │   ├── Instrutores.tsx # Team cards
+│   │   ├── Planos.tsx      # Pricing plans
+│   │   ├── Depoimentos.tsx # Testimonials
+│   │   ├── CTAFinal.tsx    # Final CTA
+│   │   └── Footer.tsx      # Footer
+│   ├── layout.tsx          # Root layout + fonts
+│   ├── globals.css         # CSS vars
+│   └── page.tsx            # Main page
+├── components/ui/          # UI components
+├── hooks/                  # React hooks
+├── public/                 # Static assets
+├── netlify.toml           # Netlify deployment config
+└── package.json
+```
+
+## 🎨 Design Checklist ($10K Website)
+
+- [x] **Point of view** — dark-luxury fight sport
+- [x] **Typography** — premium font pairing (no AI)
+- [x] **Color system** — 5 colors, restrained
+- [x] **Hierarchy** — breathing + scale differentiation
+- [x] **Imagery** — real photos, art-directed
+- [x] **Motion** — hand-crafted micro-interactions
+- [x] **Mobile** — designed layout changes
+- [x] **Invisible** — WCAG AA, semantic HTML
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 16 App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animation:** GSAP + Framer Motion v12
+- **3D:** Three.js (intro particles)
+- **Icons:** Phosphor Icons
+- **Fonts:** Google Fonts via `next/font`
+- **Hosting:** Netlify
+
+## 📝 License
+
+© 2026 Elite Fight Club. All rights reserved.
