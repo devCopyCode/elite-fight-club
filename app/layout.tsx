@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Bebas_Neue, Barlow_Condensed, Inter } from "next/font/google";
+import { Bebas_Neue, Rajdhani, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -10,24 +10,30 @@ const bebasNeue = Bebas_Neue({
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
+// Substituiu Barlow Condensed — mais agressivo, industrial, próprio de fight sport
+const rajdhani = Rajdhani({
+  weight: ["300", "400", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
+});
+
+// Substituiu Barlow — Space Grotesk tem personalidade própria, não parece IA
+const spaceGrotesk = Space_Grotesk({
+  weight: ["300", "400", "500"],
   subsets: ["latin"],
   variable: "--font-barlow",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "Elite Fight Club | Academia de Muay Thai — São Paulo",
-  description:
-    "A melhor academia de Muay Thai de São Paulo. Treine com campeões. Adulto e Kids.",
+  title: "Elite Fight Club — Muay Thai & Boxe",
+  description: "Academia de Muay Thai e Boxe em alto nível. Treinamento para adultos e crianças.",
+  openGraph: {
+    title: "Elite Fight Club",
+    description: "Muay Thai & Boxe — Forje Campeões",
+    images: ["/hero-fighter.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -38,9 +44,9 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${bebasNeue.variable} ${barlowCondensed.variable} ${inter.variable}`}
+      className={`${bebasNeue.variable} ${rajdhani.variable} ${spaceGrotesk.variable}`}
     >
-      <body>{children}</body>
+      <body className="grain">{children}</body>
     </html>
   );
 }

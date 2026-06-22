@@ -1,85 +1,186 @@
+"use client";
 // app/components/Footer.tsx
-type Lang = "pt" | "en";
+import { InstagramLogo, YoutubeLogo, FacebookLogo } from "@phosphor-icons/react/dist/ssr";
 
-const t = {
-  pt: {
-    tagline: "Forjando campeões desde 2018.",
-    links: [
-      { label: "Sobre", href: "#sobre" },
-      { label: "Modalidades", href: "#modalidades" },
-      { label: "Instrutores", href: "#instrutores" },
-      { label: "Horários", href: "#horarios" },
-      { label: "Planos", href: "#planos" },
-    ],
-    copyright: "© 2026 Elite Fight Club. Todos os direitos reservados.",
-  },
-  en: {
-    tagline: "Forging champions since 2018.",
-    links: [
-      { label: "About", href: "#sobre" },
-      { label: "Modalities", href: "#modalidades" },
-      { label: "Instructors", href: "#instrutores" },
-      { label: "Schedule", href: "#horarios" },
-      { label: "Plans", href: "#planos" },
-    ],
-    copyright: "© 2026 Elite Fight Club. All rights reserved.",
-  },
-};
-
-interface Props {
-  lang: Lang;
-}
-
-export default function Footer({ lang }: Props) {
-  const c = t[lang];
-
+export default function Footer() {
   return (
     <footer
-      className="py-12"
-      style={{ backgroundColor: "#0A0A0A", borderTop: "1px solid #CC0000" }}
-      aria-label="Rodapé"
+      id="footer"
+      style={{
+        background: "#050505",
+        padding: "80px 5vw 40px",
+        borderTop: "3px solid var(--red)",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-16">
-        <div className="flex flex-col md:flex-row justify-between gap-8 mb-10">
-          {/* Logo + tagline */}
-          <div>
-            <p className="font-display text-2xl tracking-wider text-[#F5F5F5] mb-2">
-              ELITE <span className="text-[#CC0000]">FIGHT</span> CLUB
-            </p>
-            <p className="text-xs" style={{ color: "#444", fontFamily: "var(--font-inter)", letterSpacing: "0.1em" }}>
-              {c.tagline}
-            </p>
-          </div>
-
-          {/* Nav links */}
-          <nav aria-label="Links do rodapé">
-            <ul className="flex flex-wrap gap-6">
-              {c.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-xs font-semibold tracking-widest uppercase hover:text-[#CC0000] transition-colors duration-200"
-                    style={{ color: "#555", fontFamily: "var(--font-inter)" }}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      <div
+        style={{
+          maxWidth: "1400px",
+          margin: "0 auto",
+        }}
+      >
+        {/* Logo */}
+        <div
+          style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(32px, 5vw, 56px)",
+            letterSpacing: "6px",
+            color: "var(--white)",
+            marginBottom: "56px",
+          }}
+        >
+          ELITE <span style={{ color: "var(--red)" }}>FIGHT</span> CLUB
         </div>
 
+        {/* 3 colunas */}
         <div
-          style={{ borderTop: "1px solid #1a1a1a", paddingTop: "2rem" }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "48px",
+            marginBottom: "64px",
+          }}
+          className="footer-grid"
         >
-          <p
-            className="text-xs text-center"
-            style={{ color: "#333", fontFamily: "var(--font-inter)", letterSpacing: "0.05em" }}
+          <div>
+            <div
+              style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "14px",
+                letterSpacing: "4px",
+                color: "var(--red)",
+                marginBottom: "20px",
+              }}
+            >
+              NAVEGAÇÃO
+            </div>
+            {["Programas", "Horários", "Planos", "Instrutores"].map((l) => (
+              <div
+                key={l}
+                style={{
+                  fontFamily: "var(--font-barlow-condensed)",
+                  fontSize: "13px",
+                  letterSpacing: "2px",
+                  color: "var(--gray)",
+                  marginBottom: "10px",
+                  cursor: "pointer",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--gray)")}
+              >
+                {l}
+              </div>
+            ))}
+          </div>
+          <div>
+            <div
+              style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "14px",
+                letterSpacing: "4px",
+                color: "var(--red)",
+                marginBottom: "20px",
+              }}
+            >
+              MODALIDADES
+            </div>
+            {["Muay Thai — Adulto", "Muay Thai — Infantil", "Boxe — Adulto", "Boxe — Infantil"].map((m) => (
+              <div
+                key={m}
+                style={{
+                  fontFamily: "var(--font-barlow-condensed)",
+                  fontSize: "13px",
+                  letterSpacing: "2px",
+                  color: "var(--gray)",
+                  marginBottom: "10px",
+                }}
+              >
+                {m}
+              </div>
+            ))}
+          </div>
+          <div>
+            <div
+              style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "14px",
+                letterSpacing: "4px",
+                color: "var(--red)",
+                marginBottom: "20px",
+              }}
+            >
+              CONTATO
+            </div>
+            {[
+              "(11) 99999-9999",
+              "contato@elitefightclub.com.br",
+              "Rua das Artes Marciais, 123",
+              "São Paulo - SP",
+            ].map((c) => (
+              <div
+                key={c}
+                style={{
+                  fontFamily: "var(--font-barlow)",
+                  fontSize: "13px",
+                  color: "var(--gray)",
+                  marginBottom: "10px",
+                  lineHeight: 1.5,
+                }}
+              >
+                {c}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderTop: "1px solid var(--gray-dark)",
+            paddingTop: "24px",
+            flexWrap: "wrap",
+            gap: "16px",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "var(--font-barlow)",
+              fontSize: "11px",
+              color: "#333",
+              letterSpacing: "1px",
+            }}
           >
-            {c.copyright}
-          </p>
+            &copy; {new Date().getFullYear()} Elite Fight Club. Todos os direitos reservados.
+          </div>
+          <div style={{ display: "flex", gap: "20px" }}>
+            {[
+              { Icon: InstagramLogo, href: "#", label: "Instagram" },
+              { Icon: YoutubeLogo, href: "#", label: "YouTube" },
+              { Icon: FacebookLogo, href: "#", label: "Facebook" },
+            ].map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                style={{ color: "var(--gray)", transition: "color 0.2s" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--red)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--gray)")}
+              >
+                <Icon size={20} weight="light" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .footer-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </footer>
   );
 }

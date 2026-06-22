@@ -1,0 +1,107 @@
+<h2>Hero — Qual composição te representa?</h2>
+<p class="subtitle">As três opções usam preto/vermelho/branco. A diferença é como texto e imagem se relacionam.</p>
+
+<div class="cards" style="grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px;">
+
+  <!-- OPÇÃO A: Full-bleed cinematic -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="card-image" style="background:#0A0A0A; padding:0; height:280px; position:relative; overflow:hidden; border:1px solid #333;">
+      <!-- Background simulate -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg, #0A0A0A 0%, #1a0000 50%, #0A0A0A 100%);opacity:0.9;"></div>
+      <!-- Red light glow -->
+      <div style="position:absolute;right:0;top:0;width:60%;height:100%;background:radial-gradient(ellipse at right center, rgba(204,0,0,0.15) 0%, transparent 70%);"></div>
+      <!-- Athlete silhouette area -->
+      <div style="position:absolute;right:5%;bottom:0;width:45%;height:95%;background:linear-gradient(to top, #0A0A0A 0%, transparent 20%);display:flex;align-items:flex-end;justify-content:center;">
+        <div style="width:100%;height:85%;background:linear-gradient(to bottom, rgba(180,180,180,0.12) 0%, rgba(100,100,100,0.08) 100%);clip-path:polygon(30% 0%, 70% 0%, 85% 30%, 90% 60%, 80% 100%, 20% 100%, 10% 60%, 15% 30%);"></div>
+      </div>
+      <!-- Diagonal red accent line -->
+      <div style="position:absolute;left:0;top:40%;width:3px;height:25%;background:#CC0000;"></div>
+      <!-- Text -->
+      <div style="position:absolute;left:0;top:0;width:55%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:20px;">
+        <div style="font-size:9px;letter-spacing:4px;color:#CC0000;text-transform:uppercase;margin-bottom:8px;">MUAY THAI · SÃO PAULO</div>
+        <div style="font-size:32px;font-weight:900;color:#F5F5F5;line-height:1;text-transform:uppercase;letter-spacing:-1px;">ELITE<br><span style="color:#CC0000;">FIGHT</span><br>CLUB</div>
+        <div style="width:40px;height:2px;background:#CC0000;margin:12px 0;"></div>
+        <div style="font-size:8px;color:#888;letter-spacing:2px;text-transform:uppercase;">Discipline · Power · Honor</div>
+        <div style="margin-top:16px;display:flex;gap:8px;">
+          <div style="background:#CC0000;color:#fff;font-size:8px;padding:6px 12px;letter-spacing:2px;text-transform:uppercase;clip-path:polygon(0 0, calc(100% - 6px) 0, 100% 100%, 0 100%);">COMECE JÁ</div>
+          <div style="border:1px solid #555;color:#999;font-size:8px;padding:6px 12px;letter-spacing:2px;text-transform:uppercase;">VER MAIS</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="background:#111; padding:14px;">
+      <h3 style="color:#F5F5F5; font-size:13px; margin:0 0 4px;">A — Cinematic Full-Bleed</h3>
+      <p style="color:#888; font-size:11px; margin:0;">Foto de atleta ocupa tela inteira. Texto sobreposto à esquerda. Luz dramática em vermelho. Mais impactante.</p>
+    </div>
+  </div>
+
+  <!-- OPÇÃO B: Split editorial -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="card-image" style="background:#0A0A0A; padding:0; height:280px; position:relative; overflow:hidden; border:1px solid #333;">
+      <!-- Left half — text -->
+      <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#0A0A0A;display:flex;flex-direction:column;justify-content:center;padding:16px;">
+        <div style="font-size:7px;letter-spacing:3px;color:#CC0000;text-transform:uppercase;margin-bottom:6px;">EST. 2018</div>
+        <div style="font-size:26px;font-weight:900;color:#F5F5F5;line-height:0.9;text-transform:uppercase;">ELITE<br>FIGHT<br>CLUB</div>
+        <div style="margin:10px 0;width:30px;height:2px;background:#CC0000;"></div>
+        <div style="font-size:7px;color:#666;line-height:1.5;">A melhor academia<br>de Muay Thai de SP</div>
+        <div style="margin-top:14px;background:#CC0000;color:#fff;font-size:8px;padding:7px 12px;letter-spacing:2px;text-transform:uppercase;display:inline-block;">TREINAR AGORA</div>
+        <div style="position:absolute;bottom:12px;left:16px;display:flex;gap:12px;">
+          <div style="text-align:center;">
+            <div style="font-size:14px;font-weight:900;color:#CC0000;">500+</div>
+            <div style="font-size:6px;color:#555;letter-spacing:1px;text-transform:uppercase;">Alunos</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:14px;font-weight:900;color:#CC0000;">15+</div>
+            <div style="font-size:6px;color:#555;letter-spacing:1px;text-transform:uppercase;">Instrutores</div>
+          </div>
+        </div>
+      </div>
+      <!-- Divider -->
+      <div style="position:absolute;left:50%;top:0;width:2px;height:100%;background:linear-gradient(to bottom, transparent, #CC0000, transparent);"></div>
+      <!-- Right half — image placeholder -->
+      <div style="position:absolute;right:0;top:0;width:50%;height:100%;overflow:hidden;">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);position:relative;">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 50%, rgba(204,0,0,0.1) 0%, transparent 60%);"></div>
+          <!-- Fighter silhouette rough -->
+          <div style="position:absolute;bottom:0;left:10%;width:80%;height:80%;background:linear-gradient(to top, #CC0000 0%, rgba(204,0,0,0.3) 20%, transparent 60%);opacity:0.15;clip-path:polygon(25% 0%, 75% 0%, 90% 40%, 95% 70%, 85% 100%, 15% 100%, 5% 70%, 10% 40%);"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#333;font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;">[ FOTO<br>ATLETA ]</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="background:#111; padding:14px;">
+      <h3 style="color:#F5F5F5; font-size:13px; margin:0 0 4px;">B — Split Editorial</h3>
+      <p style="color:#888; font-size:11px; margin:0;">Metade texto + metade imagem. Divisória vermelha. Stats no rodapé. Mais estruturado e editorial.</p>
+    </div>
+  </div>
+
+  <!-- OPÇÃO C: Brutal Typography -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="card-image" style="background:#0A0A0A; padding:0; height:280px; position:relative; overflow:hidden; border:1px solid #333;">
+      <!-- Background image fill -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 60%, #0A0A0A 100%);z-index:1;"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg, #0a0000 0%, #1a0000 40%, #0A0A0A 100%);opacity:0.6;"></div>
+      <!-- Large background text texture -->
+      <div style="position:absolute;top:-10px;left:-5px;font-size:90px;font-weight:900;color:rgba(204,0,0,0.04);line-height:1;text-transform:uppercase;z-index:0;letter-spacing:-5px;">FIGHT<br>FIGHT<br>FIGHT</div>
+      <!-- Content -->
+      <div style="position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:16px;">
+        <div style="font-size:7px;letter-spacing:5px;color:#CC0000;text-transform:uppercase;margin-bottom:10px;">■ ELITE FIGHT CLUB ■</div>
+        <div style="font-size:44px;font-weight:900;color:#F5F5F5;line-height:0.85;text-transform:uppercase;letter-spacing:-2px;">THE<br>ART OF<br><span style="color:#CC0000;-webkit-text-stroke:1px #CC0000;">MUAY<br>THAI</span></div>
+        <div style="margin:12px auto;width:60px;height:1px;background:#CC0000;"></div>
+        <div style="font-size:7px;color:#666;letter-spacing:3px;text-transform:uppercase;">São Paulo · Brasil</div>
+        <div style="margin-top:16px;display:flex;gap:8px;">
+          <div style="background:#CC0000;color:#fff;font-size:7px;padding:7px 14px;letter-spacing:2px;text-transform:uppercase;">COMECE AGORA</div>
+        </div>
+      </div>
+      <!-- Bottom marquee bar -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:20px;background:#CC0000;display:flex;align-items:center;padding:0 10px;z-index:3;">
+        <div style="font-size:7px;color:#fff;letter-spacing:3px;text-transform:uppercase;">MUAY THAI · BOXE · MMA · DEFESA PESSOAL · MUAY THAI · BOXE · MMA</div>
+      </div>
+    </div>
+    <div class="card-body" style="background:#111; padding:14px;">
+      <h3 style="color:#F5F5F5; font-size:13px; margin:0 0 4px;">C — Brutal Typography</h3>
+      <p style="color:#888; font-size:11px; margin:0;">Tipografia gigante centralizada. Texto como elemento visual dominante. Mais agressivo e editorial.</p>
+    </div>
+  </div>
+
+</div>
+
+<p style="color:#666; font-size:11px; text-align:center; margin-top:16px;">Clique para selecionar. Pode combinar elementos depois — isso é só a direção principal.</p>

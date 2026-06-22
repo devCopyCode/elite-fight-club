@@ -1,0 +1,128 @@
+<h2>Quebrando o padrão — versão com personalidade</h2>
+<p class="subtitle">Mesmo conteúdo, mas com grid assimétrico, grain texture, tipografia com caráter, e vermelho usado com precisão cirúrgica.</p>
+
+<div style="max-width:680px; margin:24px auto; display:flex; flex-direction:column; gap:20px;">
+
+  <!-- OPÇÃO "EDITORIAL BRUTAL" -->
+  <div class="card" data-choice="editorial" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="card-image" style="height:320px; background:#080808; position:relative; overflow:hidden; border:none;">
+
+      <!-- GRAIN TEXTURE overlay -->
+      <div style="position:absolute;inset:0;z-index:10;opacity:0.35;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>');background-size:150px;pointer-events:none;"></div>
+
+      <!-- ASYMMETRIC LAYOUT: 38% text / 62% image -->
+      <!-- Image area bleeds full right -->
+      <div style="position:absolute;left:34%;top:0;right:0;bottom:0;background:linear-gradient(135deg,#1a0000,#0a0a0a);overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(204,0,0,0.18) 0%,transparent 65%);"></div>
+        <!-- Diagonal cut on left edge -->
+        <div style="position:absolute;left:-1px;top:0;bottom:0;width:60px;background:#080808;clip-path:polygon(0 0,100% 0,0 100%);z-index:2;"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-30%,-50%);color:#1a1a1a;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-align:center;font-family:monospace;">ATLETA<br>EM AÇÃO</div>
+      </div>
+
+      <!-- VERTICAL RED LINE — thin, precise -->
+      <div style="position:absolute;left:33%;top:15%;bottom:15%;width:1px;background:#CC0000;z-index:5;"></div>
+
+      <!-- TEXT AREA — left, not centered -->
+      <div style="position:absolute;left:0;top:0;width:36%;height:100%;padding:24px 20px;display:flex;flex-direction:column;justify-content:center;z-index:4;">
+
+        <!-- Small label rotated -->
+        <div style="transform:rotate(-90deg);transform-origin:left center;position:absolute;left:-8px;top:50%;font-size:6px;letter-spacing:4px;color:#CC0000;text-transform:uppercase;white-space:nowrap;margin-top:-40px;">MUAY THAI · SP</div>
+
+        <div style="margin-left:14px;">
+          <!-- TEKO/CHAKRA style: mixed weights, not uniform -->
+          <div style="font-family:'Arial Narrow',sans-serif;font-size:10px;font-weight:400;color:#444;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;">N° 01 EM</div>
+          <div style="font-family:Impact,sans-serif;font-size:46px;font-weight:900;color:#F0F0F0;line-height:0.82;text-transform:uppercase;letter-spacing:-1px;">EL<span style="color:#CC0000;">I</span>TE</div>
+          <div style="font-family:Impact,sans-serif;font-size:46px;font-weight:900;color:transparent;-webkit-text-stroke:1px #CC0000;line-height:0.82;text-transform:uppercase;letter-spacing:-1px;">FIGHT</div>
+          <div style="font-family:Impact,sans-serif;font-size:46px;font-weight:900;color:#F0F0F0;line-height:0.82;text-transform:uppercase;letter-spacing:-1px;margin-bottom:14px;">CLUB</div>
+
+          <!-- Thin divider with dot -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <div style="width:4px;height:4px;background:#CC0000;border-radius:50%;flex-shrink:0;"></div>
+            <div style="flex:1;height:1px;background:#1e1e1e;"></div>
+          </div>
+
+          <div style="font-family:Arial,sans-serif;font-size:8px;color:#555;line-height:1.8;letter-spacing:0.5px;">Treine com quem<br>formou campeões.</div>
+
+          <!-- CTA raw/minimal -->
+          <div style="margin-top:16px;">
+            <div style="display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid #CC0000;padding-bottom:4px;">
+              <div style="width:16px;height:1px;background:#CC0000;"></div>
+              <div style="font-family:Arial,sans-serif;font-size:8px;color:#CC0000;letter-spacing:3px;text-transform:uppercase;">COMECE JÁ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM: stats bar — full width, breaks the column grid -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:48px;background:rgba(8,8,8,0.95);border-top:1px solid #161616;display:flex;align-items:center;z-index:6;padding:0 24px;gap:0;">
+        <div style="display:flex;align-items:baseline;gap:4px;flex:1;">
+          <span style="font-family:Impact,sans-serif;font-size:18px;color:#CC0000;font-weight:900;">500</span>
+          <span style="font-family:Arial,sans-serif;font-size:7px;color:#444;letter-spacing:2px;text-transform:uppercase;">alunos</span>
+        </div>
+        <div style="width:1px;height:20px;background:#1a1a1a;"></div>
+        <div style="display:flex;align-items:baseline;gap:4px;flex:1;padding-left:16px;">
+          <span style="font-family:Impact,sans-serif;font-size:18px;color:#CC0000;font-weight:900;">15</span>
+          <span style="font-family:Arial,sans-serif;font-size:7px;color:#444;letter-spacing:2px;text-transform:uppercase;">instrutores</span>
+        </div>
+        <div style="width:1px;height:20px;background:#1a1a1a;"></div>
+        <div style="display:flex;align-items:baseline;gap:4px;flex:1;padding-left:16px;">
+          <span style="font-family:Impact,sans-serif;font-size:18px;color:#CC0000;font-weight:900;">8</span>
+          <span style="font-family:Arial,sans-serif;font-size:7px;color:#444;letter-spacing:2px;text-transform:uppercase;">anos</span>
+        </div>
+        <!-- Right side: marquee hint -->
+        <div style="font-family:Arial,sans-serif;font-size:7px;color:#222;letter-spacing:3px;text-transform:uppercase;">DISCIPLINA · RESPEITO · HONRA</div>
+      </div>
+    </div>
+    <div class="card-body" style="background:#0d0d0d; padding:14px; border-top:1px solid #1a1a1a;">
+      <h3 style="color:#F5F5F5; font-size:13px; margin:0 0 6px;">Editorial Brutal</h3>
+      <ul style="color:#777; font-size:11px; margin:0; padding-left:16px; line-height:2;">
+        <li>Grid <strong style="color:#aaa">assimétrico 36/64</strong> — corte diagonal na borda</li>
+        <li><strong style="color:#aaa">Grain texture</strong> sobre tudo — tira o aspecto "digital limpo"</li>
+        <li><strong style="color:#aaa">"FIGHT" outline</strong> (texto vazado) — efeito que destaca sem gritar</li>
+        <li>Label vertical rotacionada — detalhe editorial</li>
+        <li>Stats bar <strong style="color:#aaa">quebra o grid</strong> — corre de borda a borda no footer do hero</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEGUNDA OPÇÃO: Mais cinematic, menos texto -->
+  <div class="card" data-choice="cinematic" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="card-image" style="height:280px; background:#050505; position:relative; overflow:hidden; border:none;">
+
+      <!-- Full bleed image zone -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,#050505 0%,rgba(5,5,5,0.6) 40%,rgba(5,5,5,0.1) 100%);z-index:2;"></div>
+      <div style="position:absolute;right:0;top:0;width:70%;bottom:0;background:linear-gradient(135deg,#1a0000,#0a0a0a);overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(204,0,0,0.2) 0%,transparent 60%);"></div>
+      </div>
+
+      <!-- GRAIN -->
+      <div style="position:absolute;inset:0;z-index:3;opacity:0.3;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>');background-size:150px;pointer-events:none;"></div>
+
+      <!-- Text — bottom left anchored -->
+      <div style="position:absolute;bottom:48px;left:32px;z-index:4;">
+        <div style="font-family:Arial,sans-serif;font-size:7px;letter-spacing:6px;color:#CC0000;text-transform:uppercase;margin-bottom:10px;">■ EST. 2018 · SÃO PAULO</div>
+        <div style="font-family:Impact,sans-serif;font-size:58px;font-weight:900;color:#fff;line-height:0.82;text-transform:uppercase;letter-spacing:-2px;text-shadow:0 0 60px rgba(204,0,0,0.3);">ELITE<br><span style="color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.4);">FIGHT</span><br>CLUB</div>
+      </div>
+
+      <!-- Red bottom bar thin -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:#CC0000;z-index:5;"></div>
+      <div style="position:absolute;bottom:3px;left:0;right:0;height:40px;background:rgba(5,5,5,0.9);display:flex;align-items:center;padding:0 32px;z-index:4;gap:24px;">
+        <span style="font-family:Arial,sans-serif;font-size:7px;color:#333;letter-spacing:3px;text-transform:uppercase;">↓ ROLE PARA CONHECER</span>
+        <div style="flex:1;height:1px;background:#111;"></div>
+        <span style="font-family:Arial,sans-serif;font-size:7px;color:#CC0000;letter-spacing:2px;">TREINAR AGORA →</span>
+      </div>
+    </div>
+    <div class="card-body" style="background:#0d0d0d; padding:14px; border-top:1px solid #1a1a1a;">
+      <h3 style="color:#F5F5F5; font-size:13px; margin:0 0 6px;">Cinematic Dark</h3>
+      <ul style="color:#777; font-size:11px; margin:0; padding-left:16px; line-height:2;">
+        <li>Foto ocupa <strong style="color:#aaa">70% da tela</strong> — texto ancora no canto inferior esquerdo</li>
+        <li><strong style="color:#aaa">Grain</strong> + sombra vermelha no título</li>
+        <li>"FIGHT" outline mais sutil — <strong style="color:#aaa">semitransparente</strong></li>
+        <li>Minimalista — a foto faz o trabalho pesado</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<p style="color:#555; font-size:10px; text-align:center; margin-top:8px;">Clique para selecionar. Ambas usam fonte Chakra Petch (Google Fonts) no site real — mais técnica e com identidade própria que Impact/Arial Narrow.</p>

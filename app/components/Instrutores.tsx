@@ -1,125 +1,218 @@
 // app/components/Instrutores.tsx
 "use client";
-
-import { useRef } from "react";
-import { useInView, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 
-type Lang = "pt" | "en";
+gsap.registerPlugin(ScrollTrigger);
 
-const instructors = [
+const team = [
   {
-    name: "Mestre Kru Somchai",
-    titlePt: "Head Coach · Muay Thai",
-    titleEn: "Head Coach · Muay Thai",
-    years: "22",
-    img: "https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?w=600&q=80",
+    name: "MESTRE RICARDO",
+    role: "Head Coach — Muay Thai",
+    exp: "20 anos de experiência",
+    titles: "Ex-Campeão Estadual · 3x Ouro Nacional",
+    img: "/professor-1.png",
   },
   {
-    name: "Felipe Carvalho",
-    titlePt: "Boxe & Kickboxing",
-    titleEn: "Boxing & Kickboxing",
-    years: "14",
-    img: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80",
+    name: "PROF. ANA LIMA",
+    role: "Head Coach — Boxe",
+    exp: "12 anos de experiência",
+    titles: "Campeã Brasileira 2019 · Seleção Nacional",
+    img: "/professor-3.png",
   },
   {
-    name: "Ana Beatriz Lima",
-    titlePt: "Kids & Fitness Combat",
-    titleEn: "Kids & Fitness Combat",
-    years: "9",
-    img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
+    name: "COACH THIAGO",
+    role: "Instrutor Infantil",
+    exp: "8 anos de experiência",
+    titles: "Esp. em Educação Física · CREF Ativo",
+    img: "/professor-2.png",
   },
 ];
 
-const t = {
-  pt: { label: "— INSTRUTORES", title1: "NOSSO", title2: "TIME", years: "anos" },
-  en: { label: "— INSTRUCTORS", title1: "OUR", title2: "TEAM", years: "years" },
-};
+export default function Instrutores() {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState<number | null>(null);
 
-interface Props {
-  lang: Lang;
-}
-
-export default function Instrutores({ lang }: Props) {
-  const c = t[lang];
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  useEffect(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.from(gridRef.current?.children ?? [], {
+        y: 60,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top 75%",
+        },
+      });
+    });
+    return () => mm.revert();
+  }, []);
 
   return (
-    <section
-      id="instrutores"
-      ref={ref}
-      className="py-20 md:py-32"
-      style={{ backgroundColor: "#111" }}
-      aria-labelledby="instrutores-titulo"
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-16">
-        <div className="mb-14">
-          <p className="section-label mb-4">{c.label}</p>
-          <h2 id="instrutores-titulo" className="section-title">
-            {c.title1}
-            <br />
-            <span style={{ color: "#CC0000", fontFamily: "var(--font-barlow)", fontStyle: "italic" }}>
-              {c.title2}
-            </span>
-          </h2>
-        </div>
+    <section id="instrutores" className="section-pad" style={{ background: "var(--black-2)", padding: "160px 5vw" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <span className="eyebrow" style={{ display: "block", marginBottom: "8px" }}>
+          Time de Elite
+        </span>
+        <h2
+          style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(48px, 7vw, 80px)",
+            color: "var(--white)",
+            marginBottom: "64px",
+          }}
+        >
+          NOSSOS MESTRES
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {instructors.map((inst, i) => (
-            <motion.div
-              key={inst.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" as const }}
-              className="group relative overflow-hidden"
-              style={{ backgroundColor: "#0d0d0d" }}
+        <div
+          ref={gridRef}
+          className="inst-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "24px",
+            alignItems: "start",
+          }}
+        >
+          {team.map((member, i) => (
+            <div
+              key={member.name}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                position: "relative",
+                marginTop: i === 1 ? "48px" : "0",
+              }}
             >
-              {/* Photo */}
-              <div className="relative overflow-hidden" style={{ height: "320px" }}>
+              {/* Watermark */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-10px",
+                  left: "-10px",
+                  fontFamily: "var(--font-bebas)",
+                  fontSize: "clamp(48px, 7vw, 80px)",
+                  color: "var(--white)",
+                  opacity: 0.03,
+                  lineHeight: 1,
+                  userSelect: "none",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                }}
+              >
+                {member.name}
+              </div>
+
+              {/* Photo container — hover is on parent div, not <Image> */}
+              <div
+                style={{
+                  position: "relative",
+                  height: "380px",
+                  overflow: "hidden",
+                  marginBottom: "20px",
+                }}
+              >
                 <Image
-                  src={inst.img}
-                  alt={inst.name}
+                  src={member.img}
+                  alt={member.name}
                   fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  style={{ filter: "grayscale(30%)" }}
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 90vw, 33vw"
+                  style={{
+                    objectFit: "cover",
+                    filter: hovered === i ? "grayscale(0%)" : "grayscale(100%)",
+                    transform: hovered === i ? "scale(1.05)" : "scale(1)",
+                    transition: "filter 0.65s ease, transform 0.65s ease",
+                  }}
                 />
-                {/* Red overlay on hover */}
                 <div
-                  className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                  style={{ background: "rgba(204,0,0,0.15)" }}
-                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "50%",
+                    background: "linear-gradient(to top, var(--black-2), transparent)",
+                    zIndex: 1,
+                  }}
                 />
+                {/* Red line draws across bottom on hover */}
                 <div
-                  className="absolute inset-0"
-                  style={{ background: "linear-gradient(to top, #0d0d0d 0%, transparent 50%)" }}
-                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    height: "2px",
+                    background: "var(--red)",
+                    width: hovered === i ? "100%" : "0%",
+                    transition: "width 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                    zIndex: 2,
+                  }}
                 />
               </div>
 
-              {/* Info */}
-              <div className="p-6">
+              {/* Text block — lifts on hover */}
+              <div
+                style={{
+                  transform: hovered === i ? "translateY(-6px)" : "translateY(0)",
+                  transition: "transform 0.4s ease",
+                }}
+              >
+                <span className="red-line" style={{ marginBottom: "12px" }} />
                 <div
-                  className="mb-1 text-xs font-semibold tracking-widest uppercase"
-                  style={{ color: "#CC0000", fontFamily: "var(--font-inter)" }}
+                  style={{
+                    fontFamily: "var(--font-bebas)",
+                    fontSize: "24px",
+                    letterSpacing: "2px",
+                    color: "var(--white)",
+                    marginBottom: "4px",
+                  }}
                 >
-                  {lang === "pt" ? inst.titlePt : inst.titleEn}
+                  {member.name}
                 </div>
-                <h3 className="font-display text-2xl text-[#F5F5F5] uppercase tracking-wide">
-                  {inst.name}
-                </h3>
-                <p
-                  className="text-xs mt-2"
-                  style={{ color: "#555", fontFamily: "var(--font-inter)" }}
+                <div
+                  style={{
+                    fontFamily: "var(--font-barlow-condensed)",
+                    fontSize: "12px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    color: "var(--red)",
+                    marginBottom: "8px",
+                  }}
                 >
-                  {inst.years} {c.years}
-                </p>
+                  {member.role}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-barlow)",
+                    fontSize: "13px",
+                    color: hovered === i ? "rgba(240,240,240,0.7)" : "var(--gray)",
+                    lineHeight: 1.6,
+                    transition: "color 0.3s",
+                  }}
+                >
+                  {member.exp}
+                  <br />
+                  {member.titles}
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .inst-grid { grid-template-columns: 1fr !important; }
+          .inst-grid > *:nth-child(2) { margin-top: 0 !important; }
+        }
+      `}</style>
     </section>
   );
 }
