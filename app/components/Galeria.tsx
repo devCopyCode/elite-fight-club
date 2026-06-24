@@ -4,11 +4,11 @@ import Image from "next/image";
 
 const photos = [
   { src: "/gym-interior.jpg",    label: "A Academia" },
-  { src: "/galeria-1.png",       label: "Treinamento" },
-  { src: "/galeria-2.png",       label: "Equipamentos" },
-  { src: "/galeria-3.png",       label: "Sparring" },
-  { src: "/galeria-4.png",       label: "Competição" },
-  { src: "/galeria-infantil.png",label: "Infantil" },
+  { src: "/galeria-1.jpg",       label: "Treinamento" },
+  { src: "/galeria-2.jpg",       label: "Equipamentos" },
+  { src: "/galeria-3.jpg",       label: "Sparring" },
+  { src: "/galeria-4.jpg",       label: "Competição" },
+  { src: "/galeria-infantil.jpg",label: "Infantil" },
 ];
 
 // 2 cópias para loop seamless em -50%

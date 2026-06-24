@@ -13,21 +13,21 @@ const team = [
     role: "Head Coach — Muay Thai",
     exp: "20 anos de experiência",
     titles: "Ex-Campeão Estadual · 3x Ouro Nacional",
-    img: "/professor-1.png",
+    img: "/professor-1.jpg",
   },
   {
     name: "PROF. ANA LIMA",
     role: "Head Coach — Boxe",
     exp: "12 anos de experiência",
     titles: "Campeã Brasileira 2019 · Seleção Nacional",
-    img: "/professor-3.png",
+    img: "/professor-3.jpg",
   },
   {
     name: "COACH THIAGO",
     role: "Instrutor Infantil",
     exp: "8 anos de experiência",
     titles: "Esp. em Educação Física · CREF Ativo",
-    img: "/professor-2.png",
+    img: "/professor-2.jpg",
   },
 ];
 
