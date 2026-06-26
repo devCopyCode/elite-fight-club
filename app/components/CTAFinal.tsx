@@ -87,6 +87,7 @@ export default function CTAFinal() {
   return (
     <section
       id="cta-final"
+      className="cta-section"
       style={{ position: "relative", padding: "140px 5vw", overflow: "hidden" }}
     >
       {/* Background */}
@@ -143,7 +144,7 @@ export default function CTAFinal() {
           Primeira aula gratuita. Sem compromisso.
         </p>
 
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="cta-btns" style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <MagneticBtn
             href="https://wa.me/5511999999999?text=Quero%20agendar%20minha%20aula%20gratuita"
             target="_blank"
@@ -162,6 +163,13 @@ export default function CTAFinal() {
           </MagneticBtn>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .cta-section { padding: 80px 5vw !important; }
+          .cta-btns { flex-direction: column !important; align-items: stretch !important; }
+          .cta-btns a { text-align: center !important; width: 100% !important; }
+        }
+      `}</style>
     </section>
   );
 }

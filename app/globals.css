@@ -144,7 +144,39 @@ a:focus:not(:focus-visible) {
 
 /* ── MOBILE SECTION PADDING ── */
 @media (max-width: 768px) {
-  .section-pad { padding-top: 80px !important; padding-bottom: 80px !important; }
+  .section-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+
+  /* Programas */
+  .programas-grid { grid-template-columns: 1fr !important; }
+  .programas-divider { display: none !important; }
+
+  /* Instrutores */
+  .inst-grid { grid-template-columns: 1fr !important; }
+  .inst-grid > *:nth-child(2) { margin-top: 0 !important; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr !important; }
+
+  /* Valores */
+  .valores-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Sobre */
+  .sobre-grid { grid-template-columns: 1fr !important; }
+  .mv-grid { grid-template-columns: 1fr !important; }
+
+  /* Planos toggle */
+  .planos-toggle { flex-direction: column !important; }
+  .planos-toggle button { width: 100% !important; clip-path: none !important; }
+
+  /* Hero */
+  .hero-stats { grid-template-columns: 1fr 1fr !important; }
+  .hero-desc { grid-template-columns: 1fr !important; }
+
+  /* Nav padding */
+  nav { padding: 0 20px !important; }
+
+  /* Buttons full width on mobile em seções */
+  .btn-full-mobile { width: 100% !important; justify-content: center !important; }
 }
 
 /* ── REDUCED MOTION ── */

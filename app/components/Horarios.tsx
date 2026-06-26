@@ -81,7 +81,7 @@ export default function Horarios() {
   return (
     <section
       id="horarios"
-      className="section-pad"
+      className="section-pad horarios-section"
       style={{ background: "var(--black)", padding: "160px 5vw" }}
     >
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
@@ -324,6 +324,11 @@ export default function Horarios() {
           </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .horarios-section { padding: 64px 4vw !important; }
+        }
+      `}</style>
     </section>
   );
 }

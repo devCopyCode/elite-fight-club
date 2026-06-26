@@ -344,7 +344,9 @@ export default function Sobre() {
           .valores-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
         @media (max-width: 768px) {
-          .sobre-grid { grid-template-columns: 1fr !important; }
+          #sobre { padding: 64px 0 80px !important; }
+          .sobre-grid { grid-template-columns: 1fr !important; gap: 32px !important; margin-bottom: 64px !important; }
+          .sobre-grid > div:last-child { height: 260px !important; }
           .mv-grid { grid-template-columns: 1fr !important; }
           .valores-grid { grid-template-columns: 1fr 1fr !important; }
         }

@@ -213,6 +213,9 @@ export default function Programas({ onOpenPlanos }: Props) {
         @media (max-width: 768px) {
           .programas-grid { grid-template-columns: 1fr !important; }
           .programas-divider { display: none !important; }
+          .programas-grid > div { padding: 48px 5vw !important; }
+          #programas { padding: 64px 0 !important; }
+          #programas > div:first-child { margin-bottom: 40px !important; }
         }
       `}</style>
     </section>

@@ -81,6 +81,7 @@ export default function StatsBar() {
 
       <style>{`
         @media (max-width: 640px) {
+          #stats { padding: 48px 5vw !important; }
           #stats > div {
             grid-template-columns: 1fr 1px 1fr !important;
             grid-template-rows: auto auto;
